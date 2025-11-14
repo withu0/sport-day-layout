@@ -109,10 +109,11 @@ function LayoutEditor() {
   const transformerRefs = useRef<{ [key: string]: any }>({});
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const stageRef = useRef<any>(null);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [selectedSlotId, setSelectedSlotId] = useState<string | null>(null);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [layoutPhotos, setLayoutPhotos] = useState<PhotoData[]>([]);
+  const [selectedSlotId, _setSelectedSlotId] = useState<string | null>(null);
+  const [layoutPhotos, _setLayoutPhotos] = useState<PhotoData[]>([]);
+  // Mark setters as intentionally unused (kept for future use)
+  void _setSelectedSlotId;
+  void _setLayoutPhotos;
   const [selectedBackgroundId, setSelectedBackgroundId] = useState<
     string | null
   >(null);
@@ -332,8 +333,7 @@ function LayoutEditor() {
   const gap = 10;
 
   // Define layout slots for two-page spread with gaps (not currently used - kept for potential future use)
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const layoutSlots = [
+  const _layoutSlots = [
     // Left Page - 3 slots
     {
       id: "left-1",
@@ -403,6 +403,8 @@ function LayoutEditor() {
       page: "right",
     }, // Bottom large rectangle
   ];
+  // Mark as intentionally unused (kept for potential future use)
+  void _layoutSlots;
 
   // Handle transformer updates for individual stages
   useEffect(() => {
